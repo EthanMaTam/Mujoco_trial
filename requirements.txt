@@ -1,0 +1,17 @@
+# Core simulation and planning
+numpy
+mujoco
+pinocchio
+tsid
+ompl
+ruckig
+toppra
+
+# Grasping / tools
+trimesh
+pcg-gazebo
+click
+scikit-video
+
+# Dev / tests
+pytest

@@ -1,0 +1,16 @@
+schema_version = 1
+
+[palm_axes]
+# palm 坐标系里：approach 表示“靠近物体”的轴，closing 表示“夹持闭合方向”的轴
+approach = [0.0, -1.0, 0.0]
+closing  = [0.0, 0.0, 1.0]
+
+[grasp]
+standoff = 0.0
+surface_clearance = 0.00
+inplane_yaw_samples = 4
+strategy = "faces"   # 先写死一个：从 6 个面生成候选
+
+[scoring]
+# 可选：先占位，后面你想加“更偏好从上方接近”“更对齐当前 palm 朝向”等都放这
+prefer_world_up = true
