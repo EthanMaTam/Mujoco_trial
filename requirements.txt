@@ -1,9 +1,4 @@
-# Core simulation and planning
-numpy
-mujoco
-pinocchio
-tsid
-ompl
+# Core simulation and planning (pip-only; heavy deps via conda)
 ruckig
 toppra
 

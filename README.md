@@ -15,9 +15,11 @@
    conda create -n mujoco_trial python=3.12
    conda activate mujoco_trial
    ```
-3. 安装依赖（重度 C++ 依赖建议走 conda-forge，剩余用 pip）：
+3. 安装依赖（重度 C++ 依赖建议走 conda-forge，toppra/ruckig 不在 conda-forge，用 pip 安装）：
    ```bash
-   mamba install -c conda-forge mujoco pinocchio tsid ompl ruckig toppra numpy
+   mamba install -c conda-forge mujoco pinocchio tsid ompl numpy
+   pip install ruckig toppra
+   # requirements.txt 只包含纯 Python 依赖，不会重复覆盖上述 conda 包
    pip install -r requirements.txt
    ```
    - 服务器或无显示环境请设置 `MUJOCO_GL=egl`（或 `osmesa`）后再运行。
