@@ -3,7 +3,7 @@
 基于 MuJoCo 的 UR5e + Shadow Hand 仿真与抓取规划示例，便于同组同学直接复现和扩展。
 
 ## 获取代码（含子模组）
-- 第一次克隆：`git clone --recursive https://github.com/EthanMaTam/Mujoco_trial.git`（替换为你的仓库地址）。
+- 第一次克隆：`git clone --recursive https://github.com/EthanMaTam/Mujoco_trial.git`。
 - 已经克隆过但没带 `--recursive`：在仓库内运行  
   ```bash
   git submodule sync --recursive
