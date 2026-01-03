@@ -2,6 +2,15 @@
 
 基于 MuJoCo 的 UR5e + Shadow Hand 仿真与抓取规划示例，便于同组同学直接复现和扩展。
 
+## 获取代码（含子模组）
+- 第一次克隆：`git clone --recursive https://github.com/EthanMaTam/Mujoco_trial.git`（替换为你的仓库地址）。
+- 已经克隆过但没带 `--recursive`：在仓库内运行  
+  ```bash
+  git submodule sync --recursive
+  git submodule update --init --recursive
+  ```
+- 说明：`assets/object_sim`  是子模组，需同步更新。
+
 ## 功能概览
 - MuJoCo 场景：`ur5e_shadowhand_scene.xml`（仿真）与 `ur5e_shadowhand_scene_pin.xml`（Pinocchio/TSID 使用）。
 - 规划与控制：OMPL 路径规划、toppra 时间参数化、ruckig 轨迹跟踪，配合 TSID/Pinocchio IK。
@@ -48,14 +57,6 @@
 - 更换场景/末端：调整 `main.py` 顶部的 `SCENE_PATH`/`MJCF_PATH`/`HAND_EE`。
 - 碰撞/规划：碰撞约束在 `sim/constraint.py`，路径约束通过 `MotionPlanner` 注入；需要放宽碰撞可修改 `allowed_collision_bodies()`。
 
-## 工具脚本
-- `sim/test_tendon_synergy.py`：手指 tendon synergy 的快速检查。
-- `assets/object_sim/preview.py`：MJCF 物体预览/录像（需 `scikit-video` 与系统 ffmpeg），示例：
-  ```bash
-  python assets/object_sim/preview.py --xml ur5e_shadowhand_scene.xml --seconds 5 --video out.mp4
-  ```
-
 ## 常见问题
 - `ompl`/`pinocchio`/`tsid` 在 pip 下可能需要编译，建议优先使用 conda-forge 预编译包。
-- 如果修改了模型导致关节数变化，记得重新保存 `config/default_qpos.npy`，否则会提示维度不匹配。
 - 远程运行渲染错误时，优先检查 `MUJOCO_GL` 和显卡驱动/EGL 依赖。
